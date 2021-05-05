@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit {% endblock %}</h1>
+<form method="post">
+    {% for cur_date in arg_undone_tasks.keys() %}
+    <span class="badge badge-primary">{{ cur_date }}.</span>
+
+    <div class="container">
+        {% for cur_task in arg_undone_tasks[cur_date] %}
+        <div class="row">
+            <div class="col-sm-auto">{{ cur_task.title_ }}</div>
+            <div class="col-sm-auto">
+                <button class="btn btn-outline-danger" type="submit" name="button"
+                        value="{{cur_date}}${{cur_task.title_}}${{cur_task.is_frog_}}">Delete</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</form>
+{% endblock %}

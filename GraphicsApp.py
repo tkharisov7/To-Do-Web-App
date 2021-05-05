@@ -1,6 +1,6 @@
 from task import Task
 from datetime import date
-import PySimpleGUI as sg
+import PySimpleGUIWeb as sg
 import webbrowser
 import tkinter.font
 
