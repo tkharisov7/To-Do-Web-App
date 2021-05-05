@@ -1,11 +1,6 @@
 from task import Task
 from datetime import date
-import PySimpleGUI as sg
-import webbrowser
-import tkinter.font
 from flask import Flask, render_template, request, url_for, flash, redirect
-from werkzeug.exceptions import abort
-import sqlite3
 from database import DataBase
 
 app = Flask(__name__)
