@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Add new task {% endblock %}</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="Task title"
+               class="form-control"
+               value="{{ request.form['title']}}">
+    </div>
+    <div class="form-group">
+        <label for="frog">Is frog &#128056;?</label>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="IsFrog" id="inlineRadio1" value="Frog">
+            <label class="form-check-label" for="inlineRadio1">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="IsFrog" id="inlineRadio2" value="NotFrog">
+            <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="text" name="date" placeholder="YYYY-MM-D"
+               class="form-control"
+               value="{{ request.form['date']}}">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

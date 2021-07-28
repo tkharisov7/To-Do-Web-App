@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Current task {% endblock %}</h1>
+<span class="badge badge-primary">Today is {{ date }}.</span>
+{% if arg_undone_amount == 0 %}
+<h2>Congratulations! &#127881; You have done all tasks for today! You deserved a good leisure.</h2>
+{% else %}
+<p>You have completed {{ arg_all_amount - arg_undone_amount }} from {{ arg_all_amount }} tasks today. Good job!
+    &#128170;</p>
+<h2 style="color:royalblue">{{ arg_current_task.title_ }}</h2>
+<h4>Is frog &#128056; {% if arg_current_task.is_frog_%}<span style="color : lawngreen"> YES </span> {% else %}
+    <span style="color : tomato"> NO </span> {% endif %}</h4>
+<form method="post">
+    <div class="form-group">
+        {% if arg_current_task.is_frog_ %}
+        <input class="btn btn-primary" type="submit" name="button" value="Skip"  disabled>
+        {% else %}
+        <input class="btn btn-primary" type="submit" name="button"  value="Skip">
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" name="button" value="Done">
+    </div>
+</form>
+{% endif %}
+{% endblock %}
